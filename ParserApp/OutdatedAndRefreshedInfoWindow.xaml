@@ -1,0 +1,15 @@
+﻿<Window x:Class="ParserApp.OutdatedAndRefreshedInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParserApp"
+        mc:Ignorable="d"
+        Title="Обновленная информация" Height="450" Width="450" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="threatViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Threat}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource threatViewSource}">
+        <TextBox Name="RefreshedInfo" TextWrapping="Wrap" Text="TextBox" TextChanged="RefreshedInfo_TextChanged"/>
+    </Grid>
+</Window>

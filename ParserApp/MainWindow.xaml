@@ -1,0 +1,59 @@
+﻿<Window x:Class="ParserApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParserApp"
+        mc:Ignorable="d"
+        Title="Угрозы безопасности информации из банка данных ФСТЭК РФ" Height="500" Width="810" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="threatViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Threat}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource threatViewSource}" Margin="0,0,-5.463,0.254" Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="810"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="threatListView" ItemsSource="{Binding}" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="threatListView_SelectionChanged" Margin="0,10,4.269,66.403" HorizontalContentAlignment="Center" Grid.IsSharedSizeScope="False" BorderBrush="LightSteelBlue" Background="#FFF6FAFE">
+            <ListView.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
+            </ListView.Foreground>
+            <ListView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="idColumn" Header="Идентификатор УБИ" Width="120" HeaderStringFormat="">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Id}" Command="{Binding Id}" Margin="-6,-1" Click="Button_InfoAboutOneThreat"  Background="LightSteelBlue"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="nameColumn" Header="Наименование УБИ" Width="670">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="610,430,0,0" VerticalAlignment="Top" Width="75" Click="Button_Refresher" Grid.Row="1" Grid.Column="0" Height="20" Background="LightSteelBlue"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="710,430,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="75" Click="Button_Saver" Height="20" Background="LightSteelBlue"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="298,430,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_PreviousPage"  Background="LightSteelBlue"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="425,430,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_NextPage"  Background="LightSteelBlue"/>
+        <TextBlock Name="CurrentNumberOfPages" HorizontalAlignment="Left" Margin="380,430,0,0" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" Height="20"/>
+        <TextBlock Name="TotalNumberOfPages" HorizontalAlignment="Left" Margin="405,430,0,0" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="397,430,0,0" Grid.Row="1" TextWrapping="Wrap" Text="/" VerticalAlignment="Top" Height="16" Width="5"/>
+    </Grid>
+</Window>
