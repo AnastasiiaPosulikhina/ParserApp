@@ -13,7 +13,7 @@ ParserApp is a WPF application performing the function of an automatic informati
 
 • updating information after user's request. As a result, the program displays an update report to the user, indicating:
 
-    a. Update Status (Successful \ Error);
+    a. Update status (Successful \ Error);
   
     b. The total number of updated records;
   
