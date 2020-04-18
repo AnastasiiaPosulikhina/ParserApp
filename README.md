@@ -1,5 +1,7 @@
 # ParserApp
-C# elective course work №2
+C# elective course by First Line Software
+
+Work №2
 
 ParserApp is a WPF application performing the function of an automatic information parser from the official threat data bank of the Russian Federation FSTEC. It includes:
 
