@@ -13,7 +13,7 @@ namespace ParserApp
         public static string pathForThrList = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lab2", "ParserApp", "ParserApp", "bin", "Debug", "thrlist.xlsx"); //путь для скачивания базы данных угроз безопасности
         public static string pathForRefreshedThrList = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "thrlist.xlsx"); //путь для скачивания обновлённой базы данных угроз безопасности
 
-        public static List<Threat> listOfThreats = GetListOfThreats(); //список угроз безопасности 
+        public static List<Threat> listOfThreats = GetListOfThreats(); //список угроз безопаснос ти 
         public static List<Threat> listOfThreatsBefore = new List<Threat>(); //список угроз безопасности до обвноления, которые в результате обновления были изменены
         public static List<Threat> listOfThreatsAfter = new List<Threat>(); //список изменённых во время обновления угроз
 
