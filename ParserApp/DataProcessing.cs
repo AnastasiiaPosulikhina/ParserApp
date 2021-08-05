@@ -33,7 +33,7 @@ namespace ParserApp
             }
             else
             {
-                if (MessageBox.Show("Файл \"thrlist.xlsx\" с локальной базой данных не найден.", "Провести первичную загрузку данных?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Файл  \"thrlist.xlsx\" с локальной базой данных не найден.", "Провести первичную загрузку данных?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     try
                     {
