@@ -72,6 +72,9 @@
     <Compile Include="OneThreatWindow.xaml.cs">
       <DependentUpon>OneThreatWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="testWindow.xaml.cs">
+      <DependentUpon>testWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Threat.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="testWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

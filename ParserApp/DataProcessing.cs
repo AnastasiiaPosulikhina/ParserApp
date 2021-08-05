@@ -35,17 +35,19 @@ namespace ParserApp
             {
                 if (MessageBox.Show("Файл  \"thrlist.xlsx\" с локальной базой данных не найден.", "Провести первичную загрузку данных?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
+                    // @formatter:new_line_before_catch false
                     try
                     {
                         new DataProcessing().DownloadTableWithThreats("thrlist.xlsx");
                         MessageBox.Show("Файл успешно загружен в " + pathForThrList, "Уведомление");
                         listOfThreats = ParserOfThreats(pathForThrList);
-                    }
-                    catch (Exception ex)
+                    } catch (Exception ex)
                     {
-                        MessageBox.Show("Ошибка: " + ex.ToString() + "\nПроверьте Интернет-соединение и повторите попытку.\n", "Ошибка");
+                        MessageBox.Show("Ошибка: " + ex.ToString() + "\nПроверьте Интернет-соединение и повторите попытку.\n",
+                            "Ошибка");
                         Environment.Exit(0);
                     }
+                    // @formatter:new_line_before_catch restore
                 }
                 else
                 {
@@ -163,10 +165,9 @@ namespace ParserApp
                     s += GetOneChangedStringThreat(i, subRefreshedInfoBebore, subRefreshedInfoAfter);
                     count++;
                 }
-
             }
 
-            else if(listOfThreatsBefore.Count < listOfThreatsAfter.Count)
+            else if (listOfThreatsBefore.Count < listOfThreatsAfter.Count)
             {
                 if (listOfThreatsBefore.Count == 0)
                 {
@@ -243,15 +244,19 @@ namespace ParserApp
             return s;
         }
 
-        public static string GetOneChangedStringThreat(int i, string subRefreshedInfoBebore, string subRefreshedInfoAfter) //получение строки, содержащей информацию 
-        {                                                                                                                  //об одной обновлённой угрозе в формате БЫЛО/СТАЛО
+        // @formatter:allow_comment_after_lbrace true
+        public static string
+            GetOneChangedStringThreat(int i, string subRefreshedInfoBebore,
+                string subRefreshedInfoAfter) //получение строки, содержащей информацию 
+        {
+            //об одной обновлённой угрозе в формате БЫЛО/СТАЛО
             string s = null;
 
-            if (listOfThreatsBefore.Contains(listOfThreatsBefore[i]))                                                                                                           //об одной обновлённой угрозе в формате БЫЛО/СТАЛО
+            if (listOfThreatsBefore.Contains(listOfThreatsBefore[i])) //об одной обновлённой угрозе в формате БЫЛО/СТАЛО
                 s = "***\n" + listOfThreatsBefore[i].Id;
             else
             {
-                for(int j = 0; j < listOfThreatsAfter.Count; j++)
+                for (int j = 0; j < listOfThreatsAfter.Count; j++)
                 {
                     for (int k = i; k < listOfThreatsAfter.Count; k++)
                     {
@@ -262,6 +267,7 @@ namespace ParserApp
                     }
                 }
             }
+            // @formatter:allow_comment_after_lbrace restore
 
             if (listOfThreatsBefore[i].Id != listOfThreatsAfter[i].Id)
             {
