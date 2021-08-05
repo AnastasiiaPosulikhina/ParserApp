@@ -14,7 +14,7 @@ namespace ParserApp
         public static string pathForRefreshedThrList = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "thrlist.xlsx"); //путь для скачивания обновлённой базы данных угроз безопасности
 
         public static List<Threat> listOfThreats = GetListOfThreats(); //список угроз безопаснос ти 
-        public static List<Threat> listOfThreatsBefore = new List<Threat>(); //список угроз безопасности до обвноления, которые в результате обновления были изменены
+        public static List<Threat> listOfThreatsBefore =  new List<Threat>(); //список угроз безопасности до обвноления, которые в результате обновления были изменены
         public static List<Threat> listOfThreatsAfter = new List<Threat>(); //список изменённых во время обновления угроз
 
         public void DownloadTableWithThreats(string fileName) //метод загрузки данных с сайта ФСТЭК РФ
