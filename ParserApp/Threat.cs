@@ -9,7 +9,7 @@ namespace ParserApp
         public string Description { get; set; }
         public string ThreatSource { get ; set; }
         public string InteractionObject { get; set; }
-        public bool ConfidentialityBreach { get; set; }
+        public bool ConfidentialityBreach { get ; set; }
         public bool IntegrityBreach { get; set; }
         public bool AccessBreach { get; set; }
 
