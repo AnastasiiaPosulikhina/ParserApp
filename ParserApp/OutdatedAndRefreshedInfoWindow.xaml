@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ParserApp"
         mc:Ignorable="d"
         Title="Обновленная информация" Height="450" Width="450" Loaded="Window_Loaded">
-    <Window.Resources>
+    <Window.Resources >
         <CollectionViewSource x:Key="threatViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Threat}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource threatViewSource}">
